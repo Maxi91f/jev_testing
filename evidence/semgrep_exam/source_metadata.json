@@ -1,0 +1,6 @@
+{
+  "url": "https://docs.semgrep.dev/writing-rules/rule-syntax",
+  "final_url": "https://docs.semgrep.dev/writing-rules/rule-syntax",
+  "retrieved_at": "2026-09-18T19:56:21.972152+00:00",
+  "method": "urllib.request.urlopen"
+}

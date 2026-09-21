@@ -1,0 +1,2 @@
+def worker():
+    danger(x)

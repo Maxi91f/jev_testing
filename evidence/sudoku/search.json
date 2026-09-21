@@ -1,0 +1,107 @@
+{
+  "complete_boards": 288,
+  "unique_puzzles_by_clue_count": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 25728
+  },
+  "difficulty_measure": "Prefer puzzles not solved by naked/hidden singles; otherwise maximize synchronous singles rounds, then minimize initial forced cells.",
+  "rank": [
+    false,
+    3,
+    -6
+  ],
+  "puzzle": [
+    1,
+    0,
+    3,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+  ],
+  "solution": [
+    1,
+    2,
+    3,
+    4,
+    3,
+    4,
+    2,
+    1,
+    4,
+    3,
+    1,
+    2,
+    2,
+    1,
+    4,
+    3
+  ],
+  "forced_waves": [
+    [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        15,
+        3
+      ]
+    ],
+    [
+      [
+        8,
+        4
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        13,
+        1
+      ]
+    ],
+    [
+      [
+        10,
+        1
+      ],
+      [
+        14,
+        4
+      ]
+    ]
+  ]
+}

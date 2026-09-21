@@ -1,0 +1,2 @@
+def untrusted():
+    danger(x)

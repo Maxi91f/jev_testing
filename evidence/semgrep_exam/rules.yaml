@@ -1,0 +1,226 @@
+rules:
+- id: q01
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: danger(...)
+  paths:
+    include:
+    - '**/q01/*.py'
+- id: q02
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: send(...)
+  paths:
+    include:
+    - '**/q02/*.py'
+- id: q03
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: send($X)
+  paths:
+    include:
+    - '**/q03/*.py'
+- id: q04
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: compare($X, $X)
+  paths:
+    include:
+    - '**/q04/*.py'
+- id: q05
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern-either:
+  - pattern: alpha(...)
+  - pattern: beta(...)
+  paths:
+    include:
+    - '**/q05/*.py'
+- id: q06
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: send(...)
+  - pattern-not: send(safe)
+  paths:
+    include:
+    - '**/q06/*.py'
+- id: q07
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: connect(...)
+  - pattern-not: connect(..., verify=True, ...)
+  paths:
+    include:
+    - '**/q07/*.py'
+- id: q08
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: danger(...)
+  - pattern-inside: "def handler(...):\n    ..."
+  paths:
+    include:
+    - '**/q08/*.py'
+- id: q09
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: danger(...)
+  - pattern-not-inside: "def trusted(...):\n    ..."
+  paths:
+    include:
+    - '**/q09/*.py'
+- id: q10
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: $FUNC(...)
+  - metavariable-regex:
+      metavariable: $FUNC
+      regex: ^unsafe_.*
+  paths:
+    include:
+    - '**/q10/*.py'
+- id: q11
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: retry($N)
+  - metavariable-comparison:
+      metavariable: $N
+      comparison: $N > 3
+  paths:
+    include:
+    - '**/q11/*.py'
+- id: q12
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern-either:
+    - pattern: alpha(...)
+    - pattern: beta(...)
+  - pattern-not: beta(safe)
+  paths:
+    include:
+    - '**/q12/*.py'
+- id: q13
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: 'prepare($X)
+
+    ...
+
+    use($X)'
+  paths:
+    include:
+    - '**/q13/*.py'
+- id: q14
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: $OBJ.copy_from($OBJ)
+  paths:
+    include:
+    - '**/q14/*.py'
+- id: q15
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern: fetch(..., secure=False, ...)
+  paths:
+    include:
+    - '**/q15/*.py'
+- id: q16
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  pattern-regex: danger\(
+  paths:
+    include:
+    - '**/q16/*.py'
+- id: q17
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: execute($X)
+  - pattern-not-inside: 'validate($X)
+
+      ...
+
+      execute($X)'
+  paths:
+    include:
+    - '**/q17/*.py'
+- id: q18
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: execute($X)
+  - pattern-not-inside: 'validate($Y)
+
+      ...
+
+      execute($X)'
+  paths:
+    include:
+    - '**/q18/*.py'
+- id: q19
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: send(...)
+  - pattern-not: send(safe)
+  - pattern-not: send(trusted)
+  paths:
+    include:
+    - '**/q19/*.py'
+- id: q20
+  languages:
+  - python
+  severity: WARNING
+  message: Match
+  patterns:
+  - pattern: send($X)
+  - metavariable-pattern:
+      metavariable: $X
+      pattern: source(...)
+  paths:
+    include:
+    - '**/q20/*.py'
