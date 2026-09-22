@@ -22,14 +22,18 @@ ENDPOINT = "https://api.typesafe.ai/v1/systemone"
 
 def run(message, questions, print_scale=None, evaluate=None):
     # Check edited constants before making requests.
-    if not message.strip():
+    if not isinstance(message, (str, dict)):
+        raise TypeError("MESSAGE must be text or a state dictionary.")
+    if not message or (isinstance(message, str) and not message.strip()):
         raise ValueError("MESSAGE must not be empty.")
 
     # This is the API body: model selects Jev, state provides the information,
     # and questions tells Jev what to evaluate about that information.
     payload = {
         "model": MODEL,
-        "state": {"message": message},
+        # A dictionary is already structured state; text keeps the original
+        # message envelope used by the existing scenarios.
+        "state": message if isinstance(message, dict) else {"message": message},
         "questions": questions,
     }
     # Show exactly what will be sent. dumps turns a dictionary into JSON text.
